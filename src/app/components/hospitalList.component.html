@@ -1,0 +1,48 @@
+<div class="container form-control mt-4">
+  <table class="table container">
+    <thead class="thead-dark">
+      <tr>
+        <th>Hospital Name</th>
+        <th>Address</th>
+        <th>Contact Details</th>
+        <th>Details</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hospital of hospitalList">
+        <td>{{ hospital.hospitalName }}</td>
+        <td>{{ hospital.address }}</td>
+        <td>{{ hospital.hospitalNumber }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-success"
+            (click)="getHospitalById(hospital.id)"
+          >
+            Details
+          </button>
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="editHospital(hospital)"
+          >
+            Update
+          </button>
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteHospital(hospital)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

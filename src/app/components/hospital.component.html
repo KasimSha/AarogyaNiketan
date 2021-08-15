@@ -1,0 +1,70 @@
+<div class="container form-control mt-4 bg-seconday">
+  <form #myForm="ngForm">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Hospital Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="hospitalName"
+        placeholder="Enter Hospital Name"
+        [(ngModel)]="hospitalObj.hospitalName"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Bed Capacity</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Bed Capavity"
+        name="bedCapacity"
+        [(ngModel)]="hospitalObj.bedCapacity"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">ICU Beds</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="ICU Beds"
+        name="icuBeds"
+        [(ngModel)]="hospitalObj.icuBeds"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Address</label>
+      <input
+        type="Address"
+        class="form-control"
+        placeholder="Address"
+        name="address"
+        [(ngModel)]="hospitalObj.address"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Contact Details</label>
+      <input
+        type="moblie"
+        class="form-control"
+        placeholder="Contact Number"
+        name="hospitalNumber"
+        [(ngModel)]="hospitalObj.hospitalNumber"
+      />
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="addHospital(myForm.value)"
+      *ngIf="!isEdit"
+    >
+      Submit
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="updateHospital()"
+      *ngIf="isEdit"
+    >
+      Update
+    </button>
+  </form>
+</div>
