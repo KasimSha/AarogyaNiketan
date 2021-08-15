@@ -2,42 +2,29 @@
   <table class="table container">
     <thead class="thead-dark">
       <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Mobile</th>
-        <th>Profile</th>
-        <th>Update</th>
-        <th>Delete</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Profile</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of userList">
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.mobile }}</td>
+      <tr *ngFor="let row of userData">
+        <td>{{ row.name }}</td>
+        <td>{{ row.email }}</td>
+        <td>{{ row.mobile }}</td>
         <td>
-          <button
-            type="button"
-            class="btn btn-success"
-            (click)="getUserById(user.id)"
-          >
-            Profile
-          </button>
-        </td>
-        <td>
-          <button
-            type="button"
-            class="btn btn-primary"
-            (click)="editUser(user)"
-          >
-            Update
+          <button type="button" class="btn btn-primary" (click)="updateUser()">
+            Edit
           </button>
         </td>
         <td>
           <button
             type="button"
             class="btn btn-danger"
-            (click)="deleteUser(user)"
+            (click)="deleteUser(row)"
           >
             Delete
           </button>

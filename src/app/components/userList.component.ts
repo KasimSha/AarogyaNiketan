@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/user.model';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { UserModel } from '../models/user.model';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -8,79 +9,72 @@ import { UserService } from '../services/user.service';
   providers: [UserService],
 })
 export class UserListComponent implements OnInit {
-  title = 'AarogyaNiketan';
-  userList: Array<User>;
-  isEdit = false;
-  userObj = {
-    name: '',
-    email: '',
-    userName: '',
-    password: '',
-    mobile: '',
-  };
-  users!: User[];
+  formValue!: FormGroup;
+  userModel: UserModel = new UserModel();
+  userData!: any;
 
-  constructor(private userService: UserService) {
-    this.userList = [];
-  }
-
-  ngOnInit() {
-    this.getLatestUser();
-    this.userService
-      .getAllUsers()
-      .subscribe((data: User[]) => (this.userList = data));
-
-    // this.userService.getUserById(3).subscribe((data: user[]) => {
-    //   console.log(data);
-    // });
-  }
-
-  getUserById(id: number): void {
-    this.userService.getUserById(id).subscribe((data: User) => {
-      alert(
-        `ID: ${data.id} 
-          EmailId: ${data.email}  \n
-          UserName: ${data.userName}  \n
-          Mobile: ${data.mobile}`
-      );
+  constructor(
+    private formbuilder: FormBuilder,
+    private userService: UserService
+  ) {}
+  ngOnInit(): void {
+    this.formValue = this.formbuilder.group({
+      name: [''],
+      email: [''],
+      userName: [''],
+      password: [''],
+      mobile: [''],
     });
-  }
-  addUser(formObj: any) {
-    this.userService.createUser(formObj).subscribe((response) => {
-      console.log(response);
-    });
+    this.getAllUsers();
   }
 
-  // updateUser(formObj: any) {
-  //   this.userService.updateUser(formObj).subscribe((updatedUser) => {
-  //     if (updatedUser !== undefined) {
-  //       formObj = updatedUser;
-  //       alert('User Updated');
-  //     }
-  //   });
-  // }
+  postUserDetails() {
+    this.userModel.name = this.formValue.value.name;
+    this.userModel.email = this.formValue.value.email;
+    this.userModel.userName = this.formValue.value.userName;
+    this.userModel.password = this.formValue.value.password;
+    this.userModel.mobile = this.formValue.value.mobile;
 
-  getLatestUser() {
-    this.userService.getAllUsers().subscribe((response) => {
-      this.users = response;
+    this.userService.createUser(this.userModel).subscribe(
+      (res) => {
+        console.log(res);
+        alert('Employee Created');
+        this.formValue.reset();
+        this.getAllUsers();
+      },
+      (err) => {
+        alert('something Went Wrong');
+      }
+    );
+  }
+  getAllUsers() {
+    this.userService.getAllUsers().subscribe((res) => {
+      this.userData = res;
     });
   }
 
-  editUser(user: any) {
-    this.isEdit = true;
-    this.userObj = user;
+  deleteUser(row: any) {
+    this.userService.deleteUser(row.id).subscribe((res) => {
+      alert('User Deleted');
+      this.getAllUsers();
+    });
+  }
+
+  onEdit(row: any) {
+    this.userModel.id = row.id;
+    this.formValue.controls['name'].setValue(row.name);
+    this.formValue.controls['email'].setValue(row.email);
+    this.formValue.controls['userName'].setValue(row.userName);
+    this.formValue.controls['password'].setValue(row.password);
+    this.formValue.controls['mobile'].setValue(row.mmobile);
   }
 
   updateUser() {
-    this.isEdit = !this.isEdit;
-    this.userService.updateUser(this.userObj).subscribe(() => {
-      this.getLatestUser();
-    });
-  }
-
-  deleteUser(user: any) {
-    this.userService.deleteUser(user).subscribe(() => {
-      this.getLatestUser();
-    });
+    this.userModel.name = this.formValue.value.name;
+    this.userModel.email = this.formValue.value.email;
+    this.userModel.userName = this.formValue.value.userName;
+    this.userModel.password = this.formValue.value.password;
+    this.userModel.mobile = this.formValue.value.mobile;
+    this.userService.updateUser(this.userModel, this.userModel.id);
   }
 }

@@ -1,4 +1,13 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "name": "hsdkj",
+      "email": "hkhjk",
+      "userName": "jkjhkjhjk",
+      "password": "jhjhk",
+      "mobile": "kjhj"
+    }
+  ],
   "hospitals": []
 }
