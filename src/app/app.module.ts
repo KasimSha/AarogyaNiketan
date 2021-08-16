@@ -15,10 +15,9 @@ import { UserListComponent } from './components/userList.component';
 import { HospitalComponent } from './components/hospital.component';
 import { HospitalListComponent } from './components/hospitalList.component';
 import { HomeComponent } from './components/home.component';
-//import { UserListComponent } from './components/userList.component';
-// import { HospitalListComponent } from './components/hospitalList.component';
-// import { HospitalComponent } from './components/hospital.component';
-// import { LoginComponent } from './components/login.component';
+import { LoginComponent } from './components/login.component';
+//import { AdminComponent } from './components/admin.component';
+import { AdminUiComponent } from './components/AdminUi.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +28,9 @@ import { HomeComponent } from './components/home.component';
     HospitalComponent,
     HospitalListComponent,
     HomeComponent,
+    LoginComponent,
+
+    AdminUiComponent,
   ],
   imports: [
     BrowserModule,
