@@ -17,5 +17,14 @@
       "mobile": "6878768768"
     }
   ],
-  "hospitals": []
+  "hospitals": [
+    {
+      "id": 1,
+      "hospitalName": "ndkn",
+      "address": "jeedigunta",
+      "beds": 12,
+      "icuBeds": 2,
+      "contact": "9898878766"
+    }
+  ]
 }

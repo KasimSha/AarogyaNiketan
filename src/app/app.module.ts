@@ -12,6 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserComponent } from './components/user.component';
 import { UserListComponent } from './components/userList.component';
+import { HospitalComponent } from './components/hospital.component';
+import { HospitalListComponent } from './components/hospitalList.component';
+import { HomeComponent } from './components/home.component';
 //import { UserListComponent } from './components/userList.component';
 // import { HospitalListComponent } from './components/hospitalList.component';
 // import { HospitalComponent } from './components/hospital.component';
@@ -23,6 +26,9 @@ import { UserListComponent } from './components/userList.component';
     AppComponent,
     UserComponent,
     UserListComponent,
+    HospitalComponent,
+    HospitalListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
