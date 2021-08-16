@@ -66,15 +66,22 @@ export class UserListComponent implements OnInit {
     this.formValue.controls['email'].setValue(row.email);
     this.formValue.controls['userName'].setValue(row.userName);
     this.formValue.controls['password'].setValue(row.password);
-    this.formValue.controls['mobile'].setValue(row.mmobile);
+    this.formValue.controls['mobile'].setValue(row.mobile);
   }
 
-  updateUser() {
+  updateUserDetails() {
     this.userModel.name = this.formValue.value.name;
     this.userModel.email = this.formValue.value.email;
     this.userModel.userName = this.formValue.value.userName;
     this.userModel.password = this.formValue.value.password;
     this.userModel.mobile = this.formValue.value.mobile;
-    this.userService.updateUser(this.userModel, this.userModel.id);
+    this.userService
+      .updateUser(this.userModel, this.userModel.id)
+      .subscribe((res) => {
+        alert('User Details Updated');
+
+        this.formValue.reset();
+        this.getAllUsers();
+      });
   }
 }

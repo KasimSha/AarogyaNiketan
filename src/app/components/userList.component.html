@@ -4,7 +4,6 @@
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Mobile</th>
-      <th scope="col">Profile</th>
       <th scope="col">Update</th>
       <th scope="col">Delete</th>
     </tr>
@@ -20,6 +19,7 @@
           class="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
+          (click)="onEdit(row)"
         >
           Edit
         </button>
@@ -32,16 +32,6 @@
     </tr>
   </tbody>
 </table>
-
-<!-- Button trigger modal -->
-<button
-  type="button"
-  class="btn btn-primary"
-  data-bs-toggle="modal"
-  data-bs-target="#exampleModal"
->
-  Launch demo modal
-</button>
 
 <!-- Modal -->
 <div
@@ -62,12 +52,67 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body">...</div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name"
+              placeholder="Enter Full Name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Email Id</label>
+            <input
+              type="email"
+              class="form-control"
+              aria-describedby="emailHelp"
+              placeholder="Enter Email Id"
+              formControlName="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">User Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="User Name"
+              formControlName="userName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              formControlName="password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Mobile</label>
+            <input
+              type="moblie"
+              class="form-control"
+              placeholder="Mobile"
+              formControlName="mobile"
+            />
+          </div>
+        </form>
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Close
         </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="updateUserDetails()"
+        >
+          update
+        </button>
       </div>
     </div>
   </div>
