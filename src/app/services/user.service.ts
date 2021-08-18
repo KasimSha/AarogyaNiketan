@@ -24,6 +24,14 @@ export class UserService {
     );
   }
 
+  getUserById(id: number) {
+    return this.httpClient.get<any>(`http://localhost:3000/users/${id}`).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
+  }
+
   updateUser(data: any, id: number) {
     return this.httpClient
       .put<any>(`http://localhost:3000/users/${id}`, data)

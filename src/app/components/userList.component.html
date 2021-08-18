@@ -6,6 +6,7 @@
       <th scope="col">Mobile</th>
       <th scope="col">Update</th>
       <th scope="col">Delete</th>
+      <th scope="col">Details</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +28,11 @@
       <td>
         <button type="button" class="btn btn-danger" (click)="deleteUser(row)">
           Delete
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-secondary" (click)="getUser(row)">
+          Details
         </button>
       </td>
     </tr>

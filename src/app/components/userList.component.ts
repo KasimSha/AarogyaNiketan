@@ -53,6 +53,14 @@ export class UserListComponent implements OnInit {
     });
   }
 
+  getUser(row: any) {
+    this.userService.getUserById(row.id).subscribe((res) => {
+      alert(
+        `{Id: ${row.id} \n Name: ${row.name} \n Email: ${row.email} \n Username: ${row.userName}}`
+      );
+    });
+  }
+
   deleteUser(row: any) {
     this.userService.deleteUser(row.id).subscribe((res) => {
       alert('User Deleted');
@@ -83,5 +91,19 @@ export class UserListComponent implements OnInit {
         this.formValue.reset();
         this.getAllUsers();
       });
+  }
+
+  updateUserDetails2(row: any) {
+    this.userModel.name = this.formValue.value.name;
+    this.userModel.email = this.formValue.value.email;
+    this.userModel.userName = this.formValue.value.userName;
+    this.userModel.password = this.formValue.value.password;
+    this.userModel.mobile = this.formValue.value.mobile;
+    this.userService.updateUser(this.userData, row).subscribe((res) => {
+      alert('User Details Updated');
+
+      this.formValue.reset();
+      this.getAllUsers();
+    });
   }
 }

@@ -26,6 +26,16 @@ export class HospitalService {
     );
   }
 
+  getHospitalById(id: number) {
+    return this.httpClient
+      .get<any>(`http://localhost:3000/hospitals/${id}`)
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
+  }
+
   updateHospital(data: any, id: number) {
     return this.httpClient
       .put<any>(`http://localhost:3000/hospitals/${id}`, data)

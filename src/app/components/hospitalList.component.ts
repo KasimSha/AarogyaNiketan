@@ -53,6 +53,14 @@ export class HospitalListComponent implements OnInit {
     });
   }
 
+  getHospital(row: any) {
+    this.hospitalService.getHospitalById(row.id).subscribe((res) => {
+      alert(
+        `{Id: ${row.id} \n Hospital Name: ${row.hospitalName} \n Address: ${row.address} \n Beds: ${row.beds}}`
+      );
+    });
+  }
+
   deleteHospital(row: any) {
     this.hospitalService.deleteHosiptal(row.id).subscribe((res) => {
       alert('Hospital Deleted');

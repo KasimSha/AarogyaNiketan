@@ -17,7 +17,7 @@ import { HospitalListComponent } from './components/hospitalList.component';
 import { HomeComponent } from './components/home.component';
 import { LoginComponent } from './components/login.component';
 //import { AdminComponent } from './components/admin.component';
-import { AdminUiComponent } from './components/AdminUi.component';
+//import { AdminUiComponent } from './components/AdminUi.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +29,6 @@ import { AdminUiComponent } from './components/AdminUi.component';
     HospitalListComponent,
     HomeComponent,
     LoginComponent,
-
-    AdminUiComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@
       <th scope="col">Beds</th>
       <th scope="col">Icu Beds</th>
       <th scope="col">Contact</th>
+      <th scope="col">Details</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
     </tr>
@@ -17,6 +18,18 @@
       <td>{{ row.beds }}</td>
       <td>{{ row.icuBeds }}</td>
       <td>{{ row.contact }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          (click)="getHospital(row)"
+        >
+          Details
+        </button>
+      </td>
+
       <td>
         <button
           type="button"
