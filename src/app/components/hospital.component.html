@@ -9,6 +9,11 @@
         placeholder="Enter Hospital Name"
         required
       />
+      <span
+        *ngIf="hospitalName?.invalid && hospitalName?.touched"
+        class="text-danger"
+        >Name is Required</span
+      >
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">address</label>
@@ -20,6 +25,9 @@
         formControlName="address"
         required
       />
+      <small *ngIf="address?.invalid && address?.touched" class="text-danger">
+        Message is Required(minimum length 10)</small
+      >
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">City</label>
@@ -31,6 +39,9 @@
         formControlName="city"
         required
       />
+      <span *ngIf="city?.invalid && city?.touched" class="text-danger"
+        >Number is Required</span
+      >
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Beds</label>
@@ -41,6 +52,9 @@
         formControlName="beds"
         required
       />
+      <span *ngIf="beds?.invalid && beds?.touched" class="text-danger"
+        >Number is Required</span
+      >
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">ICU Beds</label>
@@ -50,6 +64,9 @@
         placeholder="Icu Beds"
         formControlName="icuBeds"
       />
+      <span *ngIf="icuBeds?.invalid && icuBeds?.touched" class="text-danger"
+        >Number is Required</span
+      >
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Contact Details</label>
@@ -59,11 +76,15 @@
         placeholder="Contact"
         formControlName="contact"
       />
+      <small *ngIf="contact?.invalid && contact?.touched" class="text-danger">
+        Message is Required(minimum length 10)</small
+      >
     </div>
     <button
       type="button"
       class="btn btn-primary"
       (click)="postHospitalDetails()"
+      [disabled]="formValue.invalid"
     >
       Submit
     </button>

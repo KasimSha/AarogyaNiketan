@@ -10,6 +10,10 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   getAdminUi() {
-    this.router.navigate(['/adminUi']);
+    this.router.navigate(['/hospitalList']);
+  }
+
+  getSignUp() {
+    this.router.navigate(['/signUp']);
   }
 }
