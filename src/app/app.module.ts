@@ -10,14 +10,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
-import { UserComponent } from './components/user.component';
-import { UserListComponent } from './components/userList.component';
-import { HospitalComponent } from './components/hospital.component';
-import { HospitalListComponent } from './components/hospitalList.component';
-import { HomeComponent } from './components/home.component';
-import { LoginComponent } from './components/login.component';
-import { HospitalList2Component } from './components/hospitalList2.component';
-import { AdminLoginComponent } from './components/adminLogin.component';
+import { UserComponent } from './components/user/user.component';
+import { UserListComponent } from './components/user/userList.component';
+import { HospitalComponent } from './components/hospital/hospital.component';
+import { HospitalListComponent } from './components/hospital/hospitalList.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { HospitalList2Component } from './components/hospital/hospitalList2.component';
+import { AdminLoginComponent } from './components/admin/adminLogin.component';
 
 //import { AdminUiComponent } from './components/AdminUi.component';
 

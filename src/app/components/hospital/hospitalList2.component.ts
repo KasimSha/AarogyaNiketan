@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { HospitalModel } from '../models/hospital.model';
-import { HospitalService } from '../services/hospital.service';
+import { Router } from '@angular/router';
+import { HospitalModel } from '../../models/hospital.model';
+import { HospitalService } from '../../services/hospital.service';
 
 @Component({
-  selector: 'app-hospitalList',
-  templateUrl: './hospitalList.component.html',
+  selector: 'app-hospitalList2',
+  templateUrl: './hospitalList2.component.html',
+  styleUrls: ['./hospitalList2.component.css'],
   providers: [HospitalService],
 })
-export class HospitalListComponent implements OnInit {
+export class HospitalList2Component implements OnInit {
   formValue!: FormGroup;
   city: string = '';
   hospitalModel: HospitalModel = new HospitalModel();
@@ -16,12 +18,14 @@ export class HospitalListComponent implements OnInit {
 
   constructor(
     private formbuilder: FormBuilder,
-    private hospitalService: HospitalService
+    private hospitalService: HospitalService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
       hospitalName: [''],
       address: [''],
+      city: [''],
       beds: [''],
       icuBeds: [''],
       contact: [''],
@@ -83,5 +87,13 @@ export class HospitalListComponent implements OnInit {
         this.formValue.reset();
         this.getAllHospitals();
       });
+  }
+
+  getDetails() {
+    this.router.navigate(['/userList']);
+  }
+
+  goToCreateHospital() {
+    this.router.navigate(['/hospital']);
   }
 }

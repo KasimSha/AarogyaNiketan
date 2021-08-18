@@ -6,8 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HospitalModel } from '../models/hospital.model';
-import { HospitalService } from '../services/hospital.service';
+import { HospitalModel } from '../../models/hospital.model';
+import { HospitalService } from '../../services/hospital.service';
 
 @Component({
   selector: 'app-hospital',
