@@ -26,24 +26,7 @@
       "beds": 1,
       "icuBeds": 7,
       "contact": "983987289"
-    },
-    {
-      "id": 4,
-      "hospitalName": "",
-      "address": "",
-      "city": "",
-      "beds": "",
-      "icuBeds": "",
-      "contact": ""
-    },
-    {
-      "id": 5,
-      "hospitalName": "",
-      "address": "",
-      "city": "",
-      "beds": "",
-      "icuBeds": "",
-      "contact": ""
     }
-  ]
+  ],
+  "bookings": []
 }

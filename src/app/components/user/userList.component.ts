@@ -63,7 +63,7 @@ export class UserListComponent implements OnInit {
   getUser(row: any) {
     this.userService.getUserById(row.id).subscribe((res) => {
       alert(
-        `{Id: ${row.id} \n Name: ${row.name} \n Email: ${row.email} \n Username: ${row.userName}}`
+        `Id: ${row.id} \n Name: ${row.name} \n Email: ${row.email} \n Username: ${row.userName}`
       );
     });
   }

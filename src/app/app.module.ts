@@ -18,8 +18,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { HospitalList2Component } from './components/hospital/hospitalList2.component';
 import { AdminLoginComponent } from './components/admin/adminLogin.component';
-
-//import { AdminUiComponent } from './components/AdminUi.component';
+import { BookingComponent } from './components/hospital/bookings/bedBooking.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +32,7 @@ import { AdminLoginComponent } from './components/admin/adminLogin.component';
     LoginComponent,
     HospitalList2Component,
     AdminLoginComponent,
+    BookingComponent,
   ],
   imports: [
     BrowserModule,

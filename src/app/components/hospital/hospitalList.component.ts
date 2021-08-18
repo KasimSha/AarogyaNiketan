@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HospitalModel } from '../../models/hospital.model';
 import { HospitalService } from '../../services/hospital.service';
 
@@ -16,7 +17,8 @@ export class HospitalListComponent implements OnInit {
 
   constructor(
     private formbuilder: FormBuilder,
-    private hospitalService: HospitalService
+    private hospitalService: HospitalService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
@@ -83,5 +85,8 @@ export class HospitalListComponent implements OnInit {
         this.formValue.reset();
         this.getAllHospitals();
       });
+  }
+  getBed() {
+    this.router.navigate(['/booking']);
   }
 }

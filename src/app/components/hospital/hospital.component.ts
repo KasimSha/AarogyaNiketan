@@ -83,7 +83,9 @@ export class HospitalComponent implements OnInit {
       this.getAllHospitals();
     });
   }
-
+  goToBack() {
+    this.router.navigate(['/hospitalList2']);
+  }
   get hospitalName() {
     return this.formValue.get('hospitalName');
   }

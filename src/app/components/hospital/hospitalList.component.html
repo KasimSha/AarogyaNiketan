@@ -2,14 +2,12 @@
   <span>
     <input
       type="text"
-      class="b-4"
+      class="form-control alert alert-dark"
       placeholder="Seach Hospital by city"
       [(ngModel)]="city"
     />
   </span>
-  <br />
 
-  <br />
   <button type="button" class="btn btn-success" (click)="getHospitals()">
     Search
   </button>
@@ -17,17 +15,18 @@
 <br />
 <br />
 <table class="table container">
-  <thead class="thead-dark">
+  <thead class="bg-warning">
     <tr>
       <th scope="col">Hospital</th>
       <th scope="col">Address</th>
       <th scope="col">city</th>
       <th scope="col">Contact</th>
       <th scope="col">Details</th>
+      <th scope="col">Book a Bed</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of hospitalData">
+    <tr *ngFor="let row of hospitalData" class="bg-dark text-light">
       <td>{{ row.hospitalName }}</td>
       <td>{{ row.address }}</td>
       <td>{{ row.city }}</td>
@@ -35,10 +34,16 @@
       <td>
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-secondary"
           (click)="getHospitalDetails(row)"
         >
           Details
+        </button>
+      </td>
+
+      <td>
+        <button type="button" class="btn btn-primary" (click)="getBed()">
+          Book a Bed
         </button>
       </td>
     </tr>

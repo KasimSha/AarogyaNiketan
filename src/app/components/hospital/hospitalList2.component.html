@@ -1,32 +1,34 @@
 <nav class="navbar navbar-light alert alert-primary">
   <span class="navbar-brand mb-0 h1">Admin Dashboard</span>
   <div class="spacer"></div>
-  <button type="button" class="btn btn-success mr-2" (click)="getDetails()">
+  <button type="button" class="bg-dark text-light mr-2" (click)="getDetails()">
     Users
   </button>
-  <button type="button" class="btn btn-success" (click)="goToCreateHospital()">
+  <button
+    type="button"
+    class="bg-dark text-light"
+    (click)="goToCreateHospital()"
+  >
     Create Hospital
   </button>
 </nav>
-<br />
+
 <div class="form-control">
   <input
     type="text"
-    class="form-control alert alert-primary"
-    placeholder="seach by city"
+    class="form-control alert alert-dark"
+    placeholder="Search by City"
     [(ngModel)]="city"
   />
-  <mat-icon>search</mat-icon>
 
-  <br />
   <button type="button" class="btn btn-success" (click)="getHospitals()">
     Search
   </button>
 </div>
-<br />
+
 <br />
 <table class="table container">
-  <thead class="thead-dark">
+  <thead class="bg-warning">
     <tr>
       <th scope="col">Hospital</th>
       <th scope="col">Address</th>
@@ -38,7 +40,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of hospitalData">
+    <tr *ngFor="let row of hospitalData" class="bg-dark text-light">
       <td>{{ row.hospitalName }}</td>
       <td>{{ row.address }}</td>
       <td>{{ row.city }}</td>

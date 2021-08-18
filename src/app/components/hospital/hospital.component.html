@@ -1,4 +1,10 @@
-<div class="container">
+<button type="button" class="btn btn-success mt-4" (click)="goToBack()">
+  Go Back
+</button>
+<div class="alert bg-primary text-light container mt-4 text-center">
+  Create New Hospital
+</div>
+<div class="container text-light p-3 bg-dark">
   <form [formGroup]="formValue">
     <div class="form-group">
       <label for="exampleInputEmail1">Hospital Name</label>

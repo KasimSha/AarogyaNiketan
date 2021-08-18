@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   providers: [],
 })
 export class AdminLoginComponent {
+  username: string = 'MSAIKASI';
+  password: string = 'Kasim123$';
   constructor(private router: Router) {}
 
   getAdminUi() {
