@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserModel } from '../models/user.model';
 import { UserService } from '../services/user.service';
 
@@ -15,7 +21,8 @@ export class UserListComponent implements OnInit {
 
   constructor(
     private formbuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
@@ -31,7 +38,7 @@ export class UserListComponent implements OnInit {
   postUserDetails() {
     this.userModel.name = this.formValue.value.name;
     this.userModel.email = this.formValue.value.email;
-    this.userModel.userName = this.formValue.value.userName;
+    this.userModel.username = this.formValue.value.username;
     this.userModel.password = this.formValue.value.password;
     this.userModel.mobile = this.formValue.value.mobile;
 
@@ -80,7 +87,7 @@ export class UserListComponent implements OnInit {
   updateUserDetails() {
     this.userModel.name = this.formValue.value.name;
     this.userModel.email = this.formValue.value.email;
-    this.userModel.userName = this.formValue.value.userName;
+    this.userModel.username = this.formValue.value.username;
     this.userModel.password = this.formValue.value.password;
     this.userModel.mobile = this.formValue.value.mobile;
     this.userService
@@ -96,7 +103,7 @@ export class UserListComponent implements OnInit {
   updateUserDetails2(row: any) {
     this.userModel.name = this.formValue.value.name;
     this.userModel.email = this.formValue.value.email;
-    this.userModel.userName = this.formValue.value.userName;
+    this.userModel.username = this.formValue.value.username;
     this.userModel.password = this.formValue.value.password;
     this.userModel.mobile = this.formValue.value.mobile;
     this.userService.updateUser(this.userData, row).subscribe((res) => {
@@ -105,5 +112,9 @@ export class UserListComponent implements OnInit {
       this.formValue.reset();
       this.getAllUsers();
     });
+  }
+
+  goToBack() {
+    this.router.navigate(['/hospitalList2']);
   }
 }
