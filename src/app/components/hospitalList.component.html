@@ -1,10 +1,29 @@
+<h1 class="text-center mt-4 alert alert-secondary">Find Hospital</h1>
+<br />
+<div class="form-control">
+  <span>
+    <input
+      type="text"
+      class="form-control alert alert-primary"
+      placeholder="seach by city"
+      [(ngModel)]="city"
+    />
+    <mat-icon>search</mat-icon>
+  </span>
+
+  <br />
+  <button type="button" class="btn btn-success" (click)="getHospitals()">
+    Search
+  </button>
+</div>
+<br />
+<br />
 <table class="table container">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Hospital</th>
       <th scope="col">Address</th>
-      <th scope="col">Beds</th>
-      <th scope="col">Icu Beds</th>
+      <th scope="col">city</th>
       <th scope="col">Contact</th>
       <th scope="col">Details</th>
       <th scope="col">Edit</th>
@@ -15,16 +34,13 @@
     <tr *ngFor="let row of hospitalData">
       <td>{{ row.hospitalName }}</td>
       <td>{{ row.address }}</td>
-      <td>{{ row.beds }}</td>
-      <td>{{ row.icuBeds }}</td>
+      <td>{{ row.city }}</td>
       <td>{{ row.contact }}</td>
       <td>
         <button
           type="button"
           class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          (click)="getHospital(row)"
+          (click)="getHospitalDetails(row)"
         >
           Details
         </button>

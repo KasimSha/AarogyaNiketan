@@ -19,12 +19,31 @@
   ],
   "hospitals": [
     {
-      "id": 1,
-      "hospitalName": "ndkn",
-      "address": "jeedigunta",
-      "beds": 12,
-      "icuBeds": 2,
-      "contact": "9898878766"
+      "id": 3,
+      "hospitalName": "ehdkhjk",
+      "address": "gkhghjgjkhjk",
+      "city": "bangalore",
+      "beds": 1,
+      "icuBeds": 7,
+      "contact": "983987289"
+    },
+    {
+      "id": 4,
+      "hospitalName": "",
+      "address": "",
+      "city": "",
+      "beds": "",
+      "icuBeds": "",
+      "contact": ""
+    },
+    {
+      "id": 5,
+      "hospitalName": "",
+      "address": "",
+      "city": "",
+      "beds": "",
+      "icuBeds": "",
+      "contact": ""
     }
   ]
 }

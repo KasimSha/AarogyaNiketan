@@ -35,6 +35,11 @@ export class HospitalService {
         })
       );
   }
+  getHospitalByCity(city: string) {
+    return this.httpClient.get<any>(
+      `http://localhost:3000/hospitals?city=${city}`
+    );
+  }
 
   updateHospital(data: any, id: number) {
     return this.httpClient

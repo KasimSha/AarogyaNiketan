@@ -10,6 +10,7 @@ import { HospitalService } from '../services/hospital.service';
 })
 export class HospitalListComponent implements OnInit {
   formValue!: FormGroup;
+  city: string = '';
   hospitalModel: HospitalModel = new HospitalModel();
   hospitalData!: any;
 
@@ -28,32 +29,20 @@ export class HospitalListComponent implements OnInit {
     this.getAllHospitals();
   }
 
-  postHospitalDetails() {
-    this.hospitalModel.hospitalName = this.formValue.value.hospitalName;
-    this.hospitalModel.address = this.formValue.value.address;
-    this.hospitalModel.beds = this.formValue.value.beds;
-    this.hospitalModel.icuBeds = this.formValue.value.icuBeds;
-    this.hospitalModel.contact = this.formValue.value.contact;
-
-    this.hospitalService.createHospital(this.hospitalModel).subscribe(
-      (res) => {
-        console.log(res);
-        alert('Hospital Created');
-        this.formValue.reset();
-        this.getAllHospitals();
-      },
-      (err) => {
-        alert('something Went Wrong');
-      }
-    );
-  }
   getAllHospitals() {
     this.hospitalService.getAllHospitals().subscribe((res) => {
       this.hospitalData = res;
     });
   }
 
-  getHospital(row: any) {
+  getHospitals(): void {
+    console.log(this.city);
+    this.hospitalService.getHospitalByCity(this.city).subscribe((res) => {
+      this.hospitalData = res;
+    });
+  }
+
+  getHospitalDetails(row: any) {
     this.hospitalService.getHospitalById(row.id).subscribe((res) => {
       alert(
         `{Id: ${row.id} \n Hospital Name: ${row.hospitalName} \n Address: ${row.address} \n Beds: ${row.beds}}`
@@ -72,6 +61,7 @@ export class HospitalListComponent implements OnInit {
     this.hospitalModel.id = row.id;
     this.formValue.controls['hospitalName'].setValue(row.hospitalName);
     this.formValue.controls['address'].setValue(row.address);
+    this.formValue.controls['city'].setValue(row.city);
     this.formValue.controls['beds'].setValue(row.beds);
     this.formValue.controls['icuBeds'].setValue(row.icuBeds);
     this.formValue.controls['contact'].setValue(row.contact);
@@ -80,6 +70,7 @@ export class HospitalListComponent implements OnInit {
   updateHospitalDetails() {
     this.hospitalModel.hospitalName = this.formValue.value.hospitalName;
     this.hospitalModel.address = this.formValue.value.address;
+    this.hospitalModel.city = this.formValue.value.city;
     this.hospitalModel.beds = this.formValue.value.beds;
     this.hospitalModel.icuBeds = this.formValue.value.icuBeds;
     this.hospitalModel.contact = this.formValue.value.contact;

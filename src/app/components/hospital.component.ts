@@ -21,6 +21,7 @@ export class HospitalComponent implements OnInit {
     this.formValue = this.formbuilder.group({
       hospitalName: [''],
       address: [''],
+      city: [''],
       beds: [''],
       icuBeds: [''],
       contact: [''],
@@ -31,6 +32,7 @@ export class HospitalComponent implements OnInit {
   postHospitalDetails() {
     this.hospitalModel.hospitalName = this.formValue.value.hospitalName;
     this.hospitalModel.address = this.formValue.value.address;
+    this.hospitalModel.city = this.formValue.value.city;
     this.hospitalModel.beds = this.formValue.value.beds;
     this.hospitalModel.icuBeds = this.formValue.value.icuBeds;
     this.hospitalModel.contact = this.formValue.value.contact;
